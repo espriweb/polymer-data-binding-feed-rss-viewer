@@ -1,9 +1,39 @@
-# Polymer App Toolbox - Starter Kit
+# Polymer App Toolbox - Starter Kit - Amended as feed reader rss
 
 [![Build Status](https://travis-ci.org/PolymerElements/polymer-starter-kit.svg?branch=master)](https://travis-ci.org/PolymerElements/polymer-starter-kit)
 
 This template is a starting point for building apps using a drawer-based
 layout. The layout is provided by `app-layout` elements.
+
+In each view of this template the following block of code to accomplish a file viewer rss was added:
+
+<template is='dom-bind'>
+<google-feeds feed='http://www.yourfeedrsspage.com/rss-full.xml' results='{{result}}'></google-feeds>
+<p>Feed title: <span>{{result.title}}</span></p>
+    <template is="dom-repeat" items="[[result.entries]]">
+        <div class="card">
+            <h1>{{item.title}}</h1>
+            <div>{{item.publishedDate}}</div>
+            <div inner-h-t-m-l="{{item.content}}"></div>
+            <div>
+                <a href="{{item.link}}">{{item.link}}</a>
+            </div>
+        </div>
+    </template>
+</template>
+
+The library used is as follows:
+
+https://elements.polymer-project.org/elements/google-feeds
+https://developers.google.com/feed/v1/devguide#resultJson
+
+The combination of the Google Feed API and the Polymer databindig system (particularly Template repeater "dom-repeat") you can get applications with compact and efficient code.
+
+For more details see the following link for the Template repeater (dom-repeat) of Polymer:
+
+https://www.polymer-project.org/1.0/docs/devguide/templates
+
+
 
 This template, along with the `polymer-cli` toolchain, also demonstrates use
 of the "PRPL pattern" This pattern allows fast first delivery and interaction with
