@@ -7,20 +7,20 @@ layout. The layout is provided by `app-layout` elements.
 
 In each view of this template the following block of code to accomplish a file viewer rss was added:
 
-<template is='dom-bind'>
-<google-feeds feed='http://www.yourfeedrsspage.com/rss-full.xml' results='{{result}}'></google-feeds>
-<p>Feed title: <span>{{result.title}}</span></p>
-    <template is="dom-repeat" items="[[result.entries]]">
-        <div class="card">
-            <h1>{{item.title}}</h1>
-            <div>{{item.publishedDate}}</div>
-            <div inner-h-t-m-l="{{item.content}}"></div>
-            <div>
-                <a href="{{item.link}}">{{item.link}}</a>
-            </div>
-        </div>
-    </template>
-</template>
+&lt;template is='dom-bind'&gt;
+&lt;google-feeds feed='http://www.yourfeedrsspage.com/rss-full.xml' results='{{result}}'&gt;&lt;/google-feeds&gt;
+&lt;p&gt;Feed title: &lt;span&gt;{{result.title}}&lt;/span&gt;&lt;/p&gt;
+    &lt;template is="dom-repeat" items="[[result.entries]]"&gt;
+        &lt;div class="card"&gt;
+            &lt;h1&gt;{{item.title}}&lt;/h1&gt;
+            &lt;div&gt;{{item.publishedDate}}&lt;/div&gt;
+            &lt;div inner-h-t-m-l="{{item.content}}"&gt;&lt;/div&gt;
+            &lt;div&gt;
+                &lt;a href="{{item.link}}"&gt;{{item.link}}&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+&lt;/template&gt;
 
 The library used is as follows:
 
